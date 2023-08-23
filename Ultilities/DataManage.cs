@@ -54,7 +54,7 @@ namespace BlazorStore.Ultilities
             // an instance of slug service
             var slugService = svcProvider.GetRequiredService<ISlugService>();
 
-            await dbContextSvc.Database.MigrateAsync();
+            //await dbContextSvc.Database.MigrateAsync();
             //await dbContextSvc.Database.MigrateAsync();
 
             //add attachment Type to the system

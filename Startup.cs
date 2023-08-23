@@ -42,14 +42,13 @@ namespace BlazorStore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-               options.UseNpgsql(
-                   DataManage.GetConnectionString(Configuration)),ServiceLifetime.Transient);
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(DataManage.GetConnectionString(Configuration)),ServiceLifetime.Transient);
+            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("TestDb"), ServiceLifetime.Transient);
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddIdentity<CustomUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-               .AddDefaultUI()
-             .AddDefaultTokenProviders()
-             .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages().AddRazorRuntimeCompilation(); ;
             services.AddServerSideBlazor();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
@@ -58,7 +57,7 @@ namespace BlazorStore
             services.AddHttpContextAccessor();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
-        
+
             services.AddScoped(sp => sp.GetRequiredService<IHttpContextAccessor>().HttpContext);
             services.AddScoped<IUserDetector, UserDetector>();
             services.AddScoped<ISlugService, SlugService>();
@@ -116,7 +115,7 @@ namespace BlazorStore
             });
 
 
-           
+
         }
     }
 }
