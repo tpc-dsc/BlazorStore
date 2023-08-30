@@ -643,8 +643,8 @@ namespace BlazorStore.Ultilities
 
             var adminUser = new CustomUser()
             {
-                Email = "arthastheking113@gmail.com",
-                UserName = "arthastheking113@gmail.com",
+                Email = "email@gmail.com",
+                UserName = "email@gmail.com",
                 FirstName = "Lan",
                 LastName = "Le",
                 PhoneNumber = "4023040329",
@@ -668,7 +668,7 @@ namespace BlazorStore.Ultilities
         private static async Task AssignRoleAsync(UserManager<CustomUser> userManagerSvc)
         {
             // get a reference to the admin user
-            var adminUser = await userManagerSvc.FindByEmailAsync("arthastheking113@gmail.com");
+            var adminUser = await userManagerSvc.FindByEmailAsync("email@gmail.com");
             await userManagerSvc.AddToRoleAsync(adminUser, "Administrator");
             var modUser = await userManagerSvc.FindByEmailAsync("mcmacay113@yahoo.com");
             await userManagerSvc.AddToRoleAsync(modUser, "Moderator");

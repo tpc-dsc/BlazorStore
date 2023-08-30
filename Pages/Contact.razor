@@ -112,14 +112,14 @@
                             <i class="fa fa-phone"></i>
                             <h4 class="title">Call us Now:</h4>
                             <ul>
-                                <li>+1 (402) 304-0329</li>
+                                <li>+1 (402) 123-4567</li>
                             </ul>
                         </div>
                         <div class="single-info">
                             <i class="fa fa-envelope-open"></i>
                             <h4 class="title">Email:</h4>
                             <ul>
-                                <li><a href="mailto:arthastheking113@gmail.com">arthastheking113@gmail.com</a></li>
+                                <li><a href="mailto:email@gmail.com">email@gmail.com</a></li>
                             </ul>
                         </div>
                         <div class="single-info">
@@ -137,7 +137,6 @@
 </section>
 <!--/ End Contact -->
 
-<BlogPostArea></BlogPostArea>
 @code {
 
     public Models.ContactForm newContactForm = new();
@@ -154,13 +153,13 @@
 
     public async Task SendMessage()
     {
-        string myEmail = "arthastheking113@gmail.com";
+        string myEmail = "email@gmail.com";
 
         string subject = $"{newContactForm.FirstName} {newContactForm.LastName} Just Send You A Message About {newContactForm.Subject}";
 
         string body = $"Message From {newContactForm.Email}: {newContactForm.Message}";
 
-        string customberSubject = $"I Just Received A Message From Lan's Blog With Name {newContactForm.FirstName} {newContactForm.LastName} About {newContactForm.Subject}";
+        string customberSubject = $"I Just Received A Message From My Market With Name {newContactForm.FirstName} {newContactForm.LastName} About {newContactForm.Subject}";
         string customberBody = $"I Received Message From {newContactForm.Email} About: {newContactForm.Subject}. I will contact back to you as soon as possible.";
 
         await _emailSender.SendEmailAsync(myEmail, subject, body);

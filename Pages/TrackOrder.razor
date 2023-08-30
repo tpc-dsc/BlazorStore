@@ -298,9 +298,6 @@ else
 
 }
 
-
-<BlogPostArea></BlogPostArea>
-
 @code {
     [Parameter]
     public string trackingNumber { get; set; }
@@ -374,7 +371,7 @@ else
           .Include(o => o.Item)
           .Include(o => o.OrderStatus)
           .ToList();
-        
+
         await JSRuntime.InvokeVoidAsync("UpdateOrderSuccess", null);
     }
 
